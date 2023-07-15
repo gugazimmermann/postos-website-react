@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { isValidCNPJ, isValidEmail, masks } from '../helpers';
-import { Alert, Button, Input, Label } from '../components';
+import { isValidCNPJ, isValidEmail, masks, statesBR } from '../helpers';
+import { Alert, Button, Input, Label, Select } from '../components';
 
 const Row = ({ children }) => <div className='mb-4 md:mb-0'>{children}</div>;
 
@@ -156,12 +156,13 @@ const RegisterForm = () => {
             </Row>
             <Row>
               <Label htmlFor='state' text='Estado' />
-              <Input
+              <Select
                 loading={loading}
                 value={state}
                 editValue={(e) => setState(e.target.value)}
                 required={true}
                 name='state'
+                data={statesBR}
               />
             </Row>
           </div>
