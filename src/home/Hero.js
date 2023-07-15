@@ -32,7 +32,7 @@ const HomeHero = () => {
   };
 
   return (
-    <section className='container flex flex-col md:flex-row items-center mx-auto pb-8'>
+    <section className='container flex flex-col md:flex-row items-center mx-auto pb-8 mt-32 md:mt-24'>
       <div className='px-3 w-full'>
         <MainText />
         <Text className='hidden md:flex' />
