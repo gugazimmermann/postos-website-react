@@ -1,7 +1,8 @@
-const Input = ({ type, name }) => {
+const Input = ({ type, name, loading }) => {
   return (
     <input
       required
+      disabled={loading}
       type={type ? type : 'text'}
       name={name}
       id={name}
