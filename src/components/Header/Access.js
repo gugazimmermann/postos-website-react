@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Login, Register } from '../../icons';
 
 const Access = () => {
@@ -17,10 +18,13 @@ const Access = () => {
 
   const RegisterButton = () => {
     return (
-      <div className='flex text-slate-800 hover:text-amber-500 cursor-pointer transition-colors duration-300'>
+      <Link
+        to='cadastro'
+        className='flex text-slate-800 hover:text-amber-500 cursor-pointer transition-colors duration-300'
+      >
         <Register />
         Cadastro
-      </div>
+      </Link>
     );
   };
 

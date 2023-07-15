@@ -1,12 +1,17 @@
-import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import Home from '../home/Home';
+import Register from '../register/Register';
 
-export const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route element={<Home />}>
-      <Route path='/' element={<Home />} />
-    </Route>,
-  ),
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <Register />,
+  },
+  {
+    path: "cadastro",
+    element: <Register />,
+  },
+]);
 
 export default router;
