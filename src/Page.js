@@ -8,9 +8,11 @@ const Page = ({ children }) => {
   return (
     <>
       <Drawer isDrawerOpen={isDrawerOpen} />
-      <Header toggleDrawer={toggleDrawer} />
-      <Main>{children}</Main>
-      <Footer />
+      <div className='flex flex-col min-h-screen'>
+        <Header toggleDrawer={toggleDrawer} />
+        <Main>{children}</Main>
+        <Footer />
+      </div>
     </>
   );
 };
