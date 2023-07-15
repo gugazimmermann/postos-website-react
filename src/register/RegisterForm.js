@@ -1,54 +1,66 @@
 import { Input, Label } from '../components';
 
 const RegisterForm = () => {
+  const Row = ({ children }) => {
+    return <div className='mb-4 md:mb-0'>{children}</div>;
+  };
+
+  const Button = () => {
+    return (
+      <div className='w-full text-center'>
+        <button
+          type='submit'
+          className='w-2/3 px-5 py-3 text-base font-medium text-center text-slate-50 bg-amber-500 rounded-lg hover:bg-amber-600'
+        >
+          Registrar
+        </button>
+      </div>
+    );
+  };
+
   return (
     <form className='mt-8 space-y-6'>
-      <div className='grid grid-cols-2 gap-4'>
-        <div>
+      <div className='md:grid md:grid-cols-2 md:gap-4'>
+        <Row>
           <Label htmlFor='document' text='CNPJ' />
           <Input name='document' />
-        </div>
-        <div>
+        </Row>
+        <Row>
           <Label htmlFor='name' text='Nome' />
           <Input name='name' />
-        </div>
+        </Row>
       </div>
-      <div className='grid grid-cols-3 gap-4'>
-        <div>
+      <div className='md:grid md:grid-cols-3 md:gap-4'>
+        <Row>
           <Label htmlFor='code' text='Código' />
           <Input name='code' />
-        </div>
-        <div>
+        </Row>
+        <Row>
           <Label htmlFor='email' text='Email' />
           <Input type='email' name='email' />
-        </div>
-        <div>
+        </Row>
+        <Row>
           <Label htmlFor='phone' text='Telefone' />
           <Input name='phone' />
-        </div>
+        </Row>
       </div>
-      <div className='grid grid-cols-2 gap-4'>
-        <div>
+      <div className='md:grid md:grid-cols-2 md:gap-4'>
+        <Row>
           <Label htmlFor='address' text='Endedreço' />
           <Input name='address' />
-        </div>
+        </Row>
         <div className='grid grid-cols-2 gap-4'>
-          <div>
+          <Row>
             <Label htmlFor='city' text='Cidade' />
             <Input name='city' />
-          </div>
-          <div>
+          </Row>
+          <Row>
             <Label htmlFor='state' text='Estado' />
             <Input name='state' />
-          </div>
+          </Row>
         </div>
       </div>
-      <button
-        type='submit'
-        className='w-full px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 sm:w-auto dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-      >
-        Registrar
-      </button>
+      <Button />
     </form>
   );
 };
