@@ -1,4 +1,4 @@
-const HeaderLogo = () => {
+const Logo = () => {
   return (
     <div className='flex flex-row items-center'>
       <img
@@ -6,9 +6,9 @@ const HeaderLogo = () => {
         src='/images/icon.png'
         alt={`${process.env.REACT_APP_TITLE} Logo`}
       />
-      <span className='text-slate-950'>{process.env.REACT_APP_TITLE}</span>
+      <span className='font-bold text-xl'>{process.env.REACT_APP_TITLE}</span>
     </div>
   );
 };
 
-export default HeaderLogo;
+export default Logo;

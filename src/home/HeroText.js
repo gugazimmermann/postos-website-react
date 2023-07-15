@@ -5,7 +5,7 @@ const HeroText = () => {
     <div className='px-3 w-full'>
       <div className=' mb-8'>
         <h2 className='mb-4 text-3xl font-bold text-left lg:text-5xl text-slate-700'>
-          Sistema para gerenciamento de
+          Sistema para Gerenciamento de
           <span className='text-5xl text-amber-500 mx-4'>Frotas</span>
           para Postos de Combustíveis
         </h2>

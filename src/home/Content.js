@@ -1,6 +1,6 @@
 const Content = () => {
   return (
-    <section className='p-10 space-y-8'>
+    <section className='container p-10 space-y-8'>
       <h1 className='text-4xl text-center'>Tempor sit labore nostrud</h1>
 
       <p>
