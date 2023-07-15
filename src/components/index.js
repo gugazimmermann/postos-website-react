@@ -8,3 +8,4 @@ export { default as Main } from './main/Main';
 export { default as NavItems } from './nav/NavItems';
 export { default as Input } from './form/Input';
 export { default as Label } from './form/Label';
+export { default as Select } from './form/Select';
