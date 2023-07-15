@@ -1,3 +1,5 @@
+export { default as Alert } from './alert/Alert';
+export { default as Button } from './button/Button';
 export { default as Card } from './card/Card';
 export { default as Drawer } from './nav/Drawer';
 export { default as Footer } from './footer/Footer';
