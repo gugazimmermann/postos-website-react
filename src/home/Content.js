@@ -1,8 +1,7 @@
 const Content = () => {
   return (
-    <section className='container p-10 space-y-8'>
+    <section className='container p-10 space-y-8 text-slate-800'>
       <h1 className='text-4xl text-center'>Tempor sit labore nostrud</h1>
-
       <p>
         Exercitation non Lorem exercitation tempor amet ad esse velit. Anim deserunt id nulla quis
         ex magna culpa exercitation. Mollit consequat enim eiusmod cupidatat commodo eiusmod nulla.
@@ -22,7 +21,6 @@ const Content = () => {
         cillum sint cupidatat amet nulla veniam laborum velit pariatur. Fugiat excepteur culpa sunt
         est anim sunt. Ea voluptate non do proident sunt ad cillum enim esse.
       </p>
-
       <p>
         Incididunt eu pariatur laborum reprehenderit duis ex cillum fugiat. Occaecat tempor commodo
         officia esse reprehenderit commodo. Irure nisi culpa anim velit esse do esse veniam dolore
@@ -35,7 +33,6 @@ const Content = () => {
         pariatur ullamco consectetur tempor officia. Dolor culpa irure enim aute ex non veniam
         eiusmod ipsum elit est sit mollit dolor. Est ad anim pariatur consequat ad sit nisi.
       </p>
-
       <p>
         Ipsum ea ad fugiat incididunt ea sit laborum cupidatat in ullamco ullamco fugiat et id. Sit
         commodo enim enim veniam do. Ad id ad tempor deserunt cupidatat reprehenderit ullamco

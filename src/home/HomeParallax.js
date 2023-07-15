@@ -1,6 +1,6 @@
 const HomeParallax = () => {
   const Item = ({ text }) => {
-    return <div className='text-white/90 hover:text-white'>{text}</div>;
+    return <div className='text-slate-50 font-bold'>{text}</div>;
   };
 
   const Divider = () => <hr className='my-4' />;
@@ -12,10 +12,10 @@ const HomeParallax = () => {
         backgroundImage: `url('https://t3.ftcdn.net/jpg/05/42/17/70/360_F_542177036_v12rYhGPt06ZrbVyLHenryRtsHc6r2S5.jpg')`,
       }}
     >
-      <h1 className='text-white text-5xl font-semibold mt-20 mb-10'>
+      <h1 className='text-slate-50 text-5xl font-semibold mt-20 mb-10'>
         {process.env.REACT_APP_TITLE}
       </h1>
-      <div className='text-center font-bold my-20 text-white/90'>
+      <div className='text-center my-20'>
         <Item text='Relatórios em tempo real' />
         <Divider />
         <Item text='Notificações para o Cliente' />
