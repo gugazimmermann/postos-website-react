@@ -1,7 +1,7 @@
 const Content = () => {
   return (
-    <section className='container p-10 space-y-8 text-slate-800'>
-      <h1 className='text-4xl text-center'>Tempor sit labore nostrud</h1>
+    <section className='container my-8 space-y-4 md:space-y-8 text-slate-800'>
+      <h1 className='text-2xl md:text-3xl text-center font-bold'>Tempor sit labore nostrud</h1>
       <p>
         Exercitation non Lorem exercitation tempor amet ad esse velit. Anim deserunt id nulla quis
         ex magna culpa exercitation. Mollit consequat enim eiusmod cupidatat commodo eiusmod nulla.
