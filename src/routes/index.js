@@ -5,6 +5,7 @@ import Register from '../pages/register/Register';
 import RegisterCode from '../pages/register/Code';
 import RegisterLogin from '../pages/register/Login';
 import RegisterSuccess from '../pages/register/Success';
+import GasStations from '../pages/gas-stations/GasStations';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: 'cadastro/sucesso/:userId',
     element: <RegisterSuccess />,
+  },
+  {
+    path: 'postos',
+    element: <GasStations />,
   },
 ]);
 
