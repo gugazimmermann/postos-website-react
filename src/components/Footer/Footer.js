@@ -110,11 +110,11 @@ const Footer = () => {
             items={[
               {
                 name: 'A Empresa',
-                link: '/',
+                link: '/empresa',
               },
               {
                 name: 'Trabalhe Conosco',
-                link: '/',
+                link: '/vagas',
               },
             ]}
           />
@@ -136,11 +136,11 @@ const Footer = () => {
             items={[
               {
                 name: 'Personalizações',
-                link: '/',
+                link: '/personalizacoes',
               },
               {
                 name: 'Novos Relatórios',
-                link: '/',
+                link: '/novos-relatorios',
               },
             ]}
           />
