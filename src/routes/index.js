@@ -6,6 +6,7 @@ import RegisterCode from '../pages/register/Code';
 import RegisterLogin from '../pages/register/Login';
 import RegisterSuccess from '../pages/register/Success';
 import GasStations from '../pages/gas-stations/GasStations';
+import Companies from '../pages/companies/Companies';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: 'postos',
     element: <GasStations />,
+  },
+  {
+    path: 'clientes',
+    element: <Companies />,
   },
 ]);
 
