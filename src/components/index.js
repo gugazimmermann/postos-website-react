@@ -9,3 +9,5 @@ export { default as NavItems } from './nav/NavItems';
 export { default as Input } from './form/Input';
 export { default as Label } from './form/Label';
 export { default as Select } from './form/Select';
+export { default as Row } from './grid/Row';
+export { default as Col2 } from './grid/Col2';
