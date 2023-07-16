@@ -10,7 +10,6 @@ const useModal = (props) => {
 
   const handleClickOutside = useCallback(
     (e) => {
-      if (modalRef?.current) console.log(!modalRef.current.contains(e.target));
       if (modalRef?.current && !modalRef.current.contains(e.target)) closeModal();
     },
     [closeModal],
