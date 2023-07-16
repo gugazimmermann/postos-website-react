@@ -13,6 +13,7 @@ import Personalization from '../pages/system/Personalization';
 import NewReports from '../pages/system/NewReports';
 import UsageTerms from '../pages/information/UsageTerms';
 import Privacity from '../pages/information/Privacity';
+import FAQ from '../pages/help/FAQ';
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
   {
     path: 'privacidade',
     element: <Privacity />,
+  },
+  {
+    path: 'faq',
+    element: <FAQ />,
   },
 ]);
 

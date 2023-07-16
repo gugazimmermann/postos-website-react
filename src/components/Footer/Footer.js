@@ -149,7 +149,7 @@ const Footer = () => {
             items={[
               {
                 name: 'FAQ',
-                link: '/',
+                link: '/faq',
               },
               {
                 name: 'Suporte',
