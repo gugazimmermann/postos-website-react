@@ -19,7 +19,7 @@ const Access = () => {
   const RegisterButton = () => {
     return (
       <Link
-        to='cadastro'
+        to='/cadastro'
         className='flex text-slate-800 hover:text-amber-500 cursor-pointer transition-colors duration-300'
       >
         <Register />
