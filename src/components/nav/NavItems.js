@@ -1,10 +1,19 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NavItems = () => {
   const NavItem = ({ to, text }) => (
-    <Link to={to} className='flex text-slate-800 hover:text-amber-500 hover:font-bold cursor-pointer transition-colors duration-300'>
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        `flex ${
+          isActive
+            ? 'text-amber-500 font-bold'
+            : 'cursor-pointer text-slate-800 hover:text-amber-500 hover:font-bold transition-colors duration-300'
+        }`
+      }
+    >
       {text}
-    </Link>
+    </NavLink>
   );
 
   return (

@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Login, Register } from '../../icons';
 
 const Access = () => {
   const LoginButton = () => {
     return (
       <a
-        className='flex cursor-pointer font-semibold text-amber-500'
+        className='flex cursor-pointer font-semibold text-slate-800'
         href={process.env.REACT_APP_APP_URL}
         target='_blank'
         rel='noopener noreferrer'
@@ -18,13 +18,19 @@ const Access = () => {
 
   const RegisterButton = () => {
     return (
-      <Link
+      <NavLink
         to='/cadastro'
-        className='flex text-slate-800 hover:text-amber-500 cursor-pointer transition-colors duration-300'
+        className={({ isActive }) =>
+        `flex ${
+          isActive
+            ? 'text-amber-500 font-bold'
+            : 'cursor-pointer text-slate-800 hover:text-amber-500 hover:font-bold transition-colors duration-300'
+        }`
+      }
       >
         <Register />
         Cadastro
-      </Link>
+      </NavLink>
     );
   };
 
