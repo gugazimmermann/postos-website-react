@@ -1,7 +1,7 @@
-import Logo from './Logo';
 import Nav from '../nav/Nav';
 import Access from './Access';
 import { Bars } from '../../icons';
+import Logo from '../logo/Logo';
 
 const Header = ({ toggleDrawer }) => {
   return (
