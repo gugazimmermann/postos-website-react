@@ -12,10 +12,10 @@ const CodeForm = ({ id, email, confirmationCode = '' }) => {
 
   const resetForm = () => setCode(confirmationCode);
 
-  const validate = (data) => {
-    if (!data.code) return 'Código de Confirmação é obrigatório!';
-    if (data.code?.length < 6) return 'Código de Confirmação deve ter mínimo de 6 caracteres!';
-    if (!data.id) return 'Ocorreu um erro, tente acessar a página novamente!';
+  const validate = (form) => {
+    if (!form.code) return 'Código de Confirmação é obrigatório!';
+    if (form.code?.length < 6) return 'Código de Confirmação deve ter mínimo de 6 caracteres!';
+    if (!form.id) return 'Ocorreu um erro, tente acessar a página novamente!';
     return false;
   };
 
@@ -23,20 +23,24 @@ const CodeForm = ({ id, email, confirmationCode = '' }) => {
     setAlert();
     e.preventDefault();
     setLoading(true);
-    const data = { id, code };
-    const validationError = validate(data);
+    const form = { id, code };
+    const validationError = validate(form);
     if (validationError) {
       setAlert(validationError);
       setLoading(false);
       return;
     }
-    const res = await api.postRegisterCode(data);
-    if (res.id) {
+    const { data } = await api.postRegisterCode(form);
+    if (data.id) {
       setLoading(false);
       resetForm();
-      navigate(`/cadastro/finalizar/${res.id}`);
+      navigate(`/cadastro/sucesso/${data.id}`);
     } else {
-      setAlert('Ocorreu um erro no envio do formulário, tente novamente.');
+      if (data.message === 'Code not found.') {
+        setAlert('Código de Confirmação inválido.');
+      } else {
+        setAlert('Ocorreu um erro no envio do formulário, tente novamente.');
+      }
       setLoading(false);
       return;
     }

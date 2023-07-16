@@ -26,20 +26,20 @@ const RegisterForm = () => {
     setState('');
   };
 
-  const validate = (data) => {
+  const validate = (form) => {
     if (
-      !data.document ||
-      !data.name ||
-      !data.email ||
-      !data.phone ||
-      !data.address ||
-      !data.city ||
-      !data.state
+      !form.document ||
+      !form.name ||
+      !form.email ||
+      !form.phone ||
+      !form.address ||
+      !form.city ||
+      !form.state
     )
       return 'Todos os campos são obrigatórios!';
-    if (!isValidCNPJ(data.document)) return 'CNPJ inválido!';
-    if (!isValidEmail(data.email)) return 'Email inválido!';
-    if (data?.name?.length < 3) return 'Nome deve ter mínimo de 3 caracteres!';
+    if (!isValidCNPJ(form.document)) return 'CNPJ inválido!';
+    if (!isValidEmail(form.email)) return 'Email inválido!';
+    if (form?.name?.length < 3) return 'Nome deve ter mínimo de 3 caracteres!';
     return false;
   };
 
@@ -47,7 +47,7 @@ const RegisterForm = () => {
     setAlert();
     e.preventDefault();
     setLoading(true);
-    const data = {
+    const form = {
       document,
       name,
       email,
@@ -56,19 +56,25 @@ const RegisterForm = () => {
       city,
       state,
     };
-    const validationError = validate(data);
+    const validationError = validate(form);
     if (validationError) {
       setAlert(validationError);
       setLoading(false);
       return;
     }
-    const res = await api.postRegister(data);
-    if (res.id) {
+    const { data } = await api.postRegister(form);
+    if (data.id) {
       setLoading(false);
       resetForm();
-      navigate(`/cadastro/codigo/${res.id}`);
+      navigate(`/cadastro/login/${data.id}`);
     } else {
-      setAlert('Ocorreu um erro no envio do formulário, tente novamente.');
+      if (data.message === 'Email is already in registered.') {
+        setAlert('Email já está cadastrado.');
+      } else if (data.message === 'Document is already in registered.') {
+        setAlert('CNPJ já está cadastrado.');
+      } else {
+        setAlert('Ocorreu um erro no envio do formulário, tente novamente.');
+      }
       setLoading(false);
       return;
     }

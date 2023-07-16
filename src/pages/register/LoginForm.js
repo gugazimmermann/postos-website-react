@@ -4,7 +4,7 @@ import * as api from '../../api';
 import { masks } from '../../helpers';
 import { Alert, Button, Input, Label, Row, Col2 } from '../../components';
 
-const OrganizationDataForm = ({ id, name }) => {
+const LoginForm = ({ id, name }) => {
   const navigate = useNavigate();
   const [alert, setAlert] = useState();
   const [loading, setLoading] = useState(false);
@@ -20,14 +20,14 @@ const OrganizationDataForm = ({ id, name }) => {
     setRepeatPassword('');
   };
 
-  const validate = (data) => {
-    if (!data.id) return 'Ocorreu um erro, tente acessar a página novamente!';
-    if (!data.code || !data.login || !data.password || !data.repeatPassword)
+  const validate = (form) => {
+    if (!form.id) return 'Ocorreu um erro, tente acessar a página novamente!';
+    if (!form.code || !form.login || !form.password || !form.repeatPassword)
       return 'Todos os campos são obrigatórios!';
-    if (data.password?.code < 3) return 'Código deve ter mínimo de 3 caracteres!';
-    if (data.password?.login < 3) return 'Usuário deve ter mínimo de 3 caracteres!';
-    if (data.password?.length < 3) return 'Senha deve ter mínimo de 3 caracteres!';
-    if (data.password !== data.repeatPassword) return 'Senhas são diferentes!';
+    if (form.password?.code < 3) return 'Código deve ter mínimo de 3 caracteres!';
+    if (form.password?.login < 3) return 'Usuário deve ter mínimo de 3 caracteres!';
+    if (form.password?.length < 3) return 'Senha deve ter mínimo de 3 caracteres!';
+    if (form.password !== form.repeatPassword) return 'Senhas são diferentes!';
     return false;
   };
 
@@ -35,20 +35,24 @@ const OrganizationDataForm = ({ id, name }) => {
     setAlert();
     e.preventDefault();
     setLoading(true);
-    const data = { id, code, login, password, repeatPassword };
-    const validationError = validate(data);
+    const form = { id, code, login, password, repeatPassword };
+    const validationError = validate(form);
     if (validationError) {
       setAlert(validationError);
       setLoading(false);
       return;
     }
-    const res = await api.postRegisterData(data);
-    if (res.id) {
+    const { data } = await api.postRegisterLogin(form);
+    if (data.id) {
       setLoading(false);
       resetForm();
-      navigate(`/cadastro/sucesso/${res.id}`);
+      navigate(`/cadastro/codigo/${data.id}`);
     } else {
-      setAlert('Ocorreu um erro no envio do formulário, tente novamente.');
+      if (data.message === 'Code is already in registered.') {
+        setAlert('Código da Organização já está cadastrado.');
+      } else {
+        setAlert('Ocorreu um erro no envio do formulário, tente novamente.');
+      }
       setLoading(false);
       return;
     }
@@ -114,4 +118,4 @@ const OrganizationDataForm = ({ id, name }) => {
   );
 };
 
-export default OrganizationDataForm;
+export default LoginForm;
