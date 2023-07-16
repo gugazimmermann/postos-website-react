@@ -7,6 +7,7 @@ const dataId = 'a78bbda1-eb40-452e-be6b-e542c0fb33ba';
 const dataEmail = 'gugazimmermann@gmail.com';
 const dataName = 'Fernandinho';
 const dataCode = 'fernandinho';
+const dataLogin = 'user_fernandinho';
 
 const simulateAPICall = async (data) => {
   try {
@@ -44,8 +45,21 @@ const postRegisterData = async ({ code, password }) => {
 };
 
 const getRegisterSuccess = async (id) => {
-  const { data } = await simulateAPICall({ id: dataId, code: dataCode, name: dataName, email: dataEmail });
+  const { data } = await simulateAPICall({
+    id: dataId,
+    code: dataCode,
+    name: dataName,
+    login: dataLogin,
+    email: dataEmail,
+  });
   return data;
 };
 
-export { postRegister, getRegisterCode, postRegisterCode, getRegisterData, postRegisterData, getRegisterSuccess };
+export {
+  postRegister,
+  getRegisterCode,
+  postRegisterCode,
+  getRegisterData,
+  postRegisterData,
+  getRegisterSuccess,
+};
