@@ -11,7 +11,7 @@ const cnpj = (value) => {
 };
 
 const phone = (value) => {
-  if (!value) return;
+  if (!value) return '';
   let r = value.replace(/\D/g, '').replace(/^0/, '');
   if (r.length > 10) r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, '($1) $2-$3');
   else if (r.length > 5) r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, '($1) $2-$3');
