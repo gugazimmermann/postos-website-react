@@ -9,8 +9,8 @@ const NavItems = () => {
 
   return (
     <>
-      <NavItem to='/' text='Para os Postos' />
-      <NavItem to='/' text='Para os Clientes' />
+      <NavItem to='/postos' text='Para os Postos' />
+      <NavItem to='/clientes' text='Para os Clientes' />
     </>
   );
 };
