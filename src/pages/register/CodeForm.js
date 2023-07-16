@@ -14,7 +14,7 @@ const CodeForm = ({ id, email, confirmationCode = '' }) => {
 
   const validate = (data) => {
     if (!data.code) return 'Código de Confirmação é obrigatório!';
-    if (!id) return 'Ocorreu um erro, tente acessar a página novamente!';
+    if (!data.id) return 'Ocorreu um erro, tente acessar a página novamente!';
     return false;
   };
 
