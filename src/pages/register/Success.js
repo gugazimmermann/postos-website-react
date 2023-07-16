@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as api from '../../api';
-import Page from '../Page';
+import Page from '../General/Page';
 import SuccessText from './SuccessText';
 
 const Success = () => {

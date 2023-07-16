@@ -1,4 +1,4 @@
-import Page from '../Page';
+import Page from '../General/Page';
 
 import { Link } from 'react-router-dom';
 

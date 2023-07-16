@@ -1,4 +1,4 @@
-import Page from '../Page';
+import Page from '../General/Page';
 import { Card } from '../../components';
 import RegisterText from './RegisterText';
 import RegisterForm from './RegisterForm';
