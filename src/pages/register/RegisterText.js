@@ -1,6 +1,6 @@
 import { useModal } from '../../hooks';
 import { PaymentText, PaymentTable } from '../payment';
-import { Arrow } from '../../icons';
+import { ModalOpen } from '../../icons';
 
 const RegisterText = () => {
   const { openModal, Modal } = useModal({ closeoutside: true });
@@ -9,10 +9,10 @@ const RegisterText = () => {
     return (
       <button
         onClick={openModal}
-        className='text-amber-500 hover:underline hover:cursor-pointer text-lg justify-center md:justify-start inline-flex items-center'
+        className='text-amber-500 hover:underline hover:cursor-pointer text-lg justify-center md:justify-start inline-flex items-center gap-2'
       >
         Saiba mais sobre Cobrança
-        <Arrow />
+        <ModalOpen />
       </button>
     );
   };

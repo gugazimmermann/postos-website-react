@@ -6,6 +6,7 @@ export { default as Instagram } from './Instagram';
 export { default as Linkedin } from './Linkedin';
 export { default as Loading } from './Loading';
 export { default as Login } from './Login';
+export { default as ModalOpen } from './ModalOpen';
 export { default as Register } from './Register';
 export { default as Threads } from './Threads';
 export { default as Twitter } from './Twitter';
