@@ -1,12 +1,19 @@
+import { useModal } from '../../hooks';
+import { PaymentText, PaymentTable } from '../payment';
 import { Arrow } from '../../icons';
 
 const RegisterText = () => {
+  const { openModal, Modal } = useModal({ closeoutside: true });
+
   const PaymentsButton = () => {
     return (
-      <div className='text-amber-500 hover:underline hover:cursor-pointer text-lg justify-center md:justify-start inline-flex items-center'>
+      <button
+        onClick={openModal}
+        className='text-amber-500 hover:underline hover:cursor-pointer text-lg justify-center md:justify-start inline-flex items-center'
+      >
         Saiba mais sobre Cobrança
         <Arrow />
-      </div>
+      </button>
     );
   };
 
@@ -18,6 +25,10 @@ const RegisterText = () => {
         cobrança quando seus clientes começarem a abastecer.
       </p>
       <PaymentsButton />
+      <Modal title='Cobrança'>
+        <PaymentText />
+        <PaymentTable />
+      </Modal>
     </div>
   );
 };
