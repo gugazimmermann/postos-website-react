@@ -1,4 +1,4 @@
-import Page from '../General/Page';
+import { Page } from '../general';
 import Content from './Content';
 import Hero from './Hero';
 import HomeParallax from './HomeParallax';

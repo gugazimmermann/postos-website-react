@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as api from '../../api';
-import Page from '../General/Page';
+import { Page } from '../general';
 import { Card } from '../../components';
 import CodeText from './CodeText';
 import CodeForm from './CodeForm';

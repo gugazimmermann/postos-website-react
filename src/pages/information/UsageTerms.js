@@ -1,10 +1,10 @@
 import { SectionParagraph, SectionTitle, Page, Section } from '../general';
 
-const Companies = () => {
+const UsageTerms = () => {
   return (
     <Page>
       <Section>
-        <SectionTitle title='Para os' word='Clientes' />
+        <SectionTitle title='Para os' word='Postos' />
         <SectionParagraph>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem modi reprehenderit vitae
           exercitationem aliquid dolores ullam temporibus enim expedita aperiam mollitia iure
@@ -15,4 +15,4 @@ const Companies = () => {
   );
 };
 
-export default Companies;
+export default UsageTerms;

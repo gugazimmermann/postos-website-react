@@ -1,6 +1,4 @@
-import { SectionParagraph, SectionTitle } from '../General';
-import Page from '../General/Page';
-import Section from '../General/Section';
+import { SectionParagraph, SectionTitle, Page, Section } from '../general';
 
 const GasStations = () => {
   return (
