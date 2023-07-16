@@ -123,11 +123,11 @@ const Footer = () => {
             items={[
               {
                 name: 'Termos de Uso',
-                link: '/',
+                link: '/termos-de-uso',
               },
               {
                 name: 'Privacidade',
-                link: '/',
+                link: '/privacidade',
               },
             ]}
           />

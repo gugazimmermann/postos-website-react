@@ -7,6 +7,8 @@ import RegisterLogin from '../pages/register/Login';
 import RegisterSuccess from '../pages/register/Success';
 import GasStations from '../pages/gas-stations/GasStations';
 import Companies from '../pages/companies/Companies';
+import UsageTerms from '../pages/information/UsageTerms';
+import Privacity from '../pages/information/Privacity';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
   {
     path: 'clientes',
     element: <Companies />,
+  },
+  {
+    path: 'termos-de-uso',
+    element: <UsageTerms />,
+  },
+  {
+    path: 'privacidade',
+    element: <Privacity />,
   },
 ]);
 
