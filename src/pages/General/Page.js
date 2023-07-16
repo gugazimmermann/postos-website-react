@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ScrollRestoration } from 'react-router-dom';
 import { Drawer, Footer, Header, Main } from '../../components';
 
 const Page = ({ children }) => {
@@ -7,6 +8,7 @@ const Page = ({ children }) => {
 
   return (
     <>
+      <ScrollRestoration />
       <Drawer isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
       <div className='flex flex-col min-h-screen'>
         <Header toggleDrawer={toggleDrawer} />
