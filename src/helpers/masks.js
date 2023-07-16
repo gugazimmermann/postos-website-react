@@ -20,4 +20,8 @@ const phone = (value) => {
   return r;
 };
 
-export { code, cnpj, phone };
+const confirmationCode = (value) => {
+  return value?.replace(/\D+/g, '')?.slice(0, 6);
+};
+
+export { code, cnpj, phone, confirmationCode };
