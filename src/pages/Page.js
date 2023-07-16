@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Drawer, Footer, Header, Main } from './components';
+import { Drawer, Footer, Header, Main } from '../components';
 
 const Page = ({ children }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

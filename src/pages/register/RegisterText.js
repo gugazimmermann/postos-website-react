@@ -1,4 +1,4 @@
-import { Arrow } from '../icons';
+import { Arrow } from '../../icons';
 
 const RegisterText = () => {
   const PaymentsButton = () => {

@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { isValidCNPJ, isValidEmail, masks, statesBR } from '../helpers';
-import { Alert, Button, Input, Label, Select } from '../components';
+import { useNavigate } from 'react-router-dom';
+import { isValidCNPJ, isValidEmail, masks, statesBR } from '../../helpers';
+import { Alert, Button, Input, Label, Select } from '../../components';
 
 const Row = ({ children }) => <div className='mb-4 md:mb-0'>{children}</div>;
 
 const Grid = ({ children }) => <div className='md:grid md:grid-cols-2 md:gap-4'>{children}</div>;
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
   const [alert, setAlert] = useState();
   const [loading, setLoading] = useState(false);
   const [document, setDocument] = useState('');
@@ -64,9 +66,9 @@ const RegisterForm = () => {
       return;
     }
     setTimeout(() => {
-      console.log();
       resetForm();
       setLoading(false);
+      navigate(`cadastro/codigo/${12345678}`, { state: email });
     }, 5000);
   };
 

@@ -1,4 +1,4 @@
-import { Hero } from '../icons';
+import { Hero } from '../../icons';
 
 const HomeHero = () => {
   const DetailMainText = ({ text }) => {
