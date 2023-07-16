@@ -10,4 +10,5 @@ export { default as ModalOpen } from './ModalOpen';
 export { default as Register } from './Register';
 export { default as Threads } from './Threads';
 export { default as Twitter } from './Twitter';
+export { default as Whatsapp } from './Whatsapp';
 export { default as Youtube } from './Youtube';
