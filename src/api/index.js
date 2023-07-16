@@ -13,9 +13,19 @@ const simulateAPICall = async (data) => {
   }
 };
 
+const postRegister = async ({ document, name, email, phone, address, city, state }) => {
+  const { data } = await simulateAPICall({ id: 'a78bbda1-eb40-452e-be6b-e542c0fb33ba' });
+  return data;
+};
+
 const getRegister = async (id) => {
   const { data } = await simulateAPICall({ email: 'gugazimmermann@gmail.com' });
   return data;
 };
 
-export { getRegister };
+const postRegisterCode = async ({ id, code }) => {
+  const { data } = await simulateAPICall({ id: 'a78bbda1-eb40-452e-be6b-e542c0fb33ba' });
+  return data;
+};
+
+export { postRegister, getRegister, postRegisterCode };

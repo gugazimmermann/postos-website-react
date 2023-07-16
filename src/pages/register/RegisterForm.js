@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import * as api from '../../api';
 import { isValidCNPJ, isValidEmail, masks, statesBR } from '../../helpers';
 import { Alert, Button, Input, Label, Select } from '../../components';
 
@@ -65,11 +66,16 @@ const RegisterForm = () => {
       setLoading(false);
       return;
     }
-    setTimeout(() => {
-      resetForm();
+    const res = await api.postRegister(data);
+    if (res.id) {
       setLoading(false);
-      navigate(`cadastro/codigo/${12345678}`, { state: email });
-    }, 5000);
+      resetForm();
+      navigate(`/cadastro/codigo/${res.id}`);
+    } else {
+      setAlert('Ocorreu um erro no envio do formulário, tente novamente.');
+      setLoading(false);
+      return;
+    }
   };
 
   return (

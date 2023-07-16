@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import * as api from '../../api';
 import { masks } from '../../helpers';
 import { Alert, Button, Input } from '../../components';
 
@@ -28,11 +29,16 @@ const CodeForm = ({ id, email, confirmationCode = '' }) => {
       setLoading(false);
       return;
     }
-    setTimeout(() => {
-      resetForm();
+    const res = await api.postRegisterCode(data);
+    if (res.id) {
       setLoading(false);
-      navigate('cadastro/sucesso');
-    }, 5000);
+      resetForm();
+      navigate(`/cadastro/finalizar/${res.id}`);
+    } else {
+      setAlert('Ocorreu um erro no envio do formulário, tente novamente.');
+      setLoading(false);
+      return;
+    }
   };
 
   useEffect(() => setLoading(!email), [email]);
