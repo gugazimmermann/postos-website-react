@@ -9,10 +9,8 @@ const NavItems = () => {
 
   return (
     <>
-      <NavItem to='/' text='Início' />
-      <NavItem to='/' text='Para o Posto' />
-      <NavItem to='/' text='Para o Cliente' />
-      <NavItem to='/' text='Sobre Nós' />
+      <NavItem to='/' text='Para os Postos' />
+      <NavItem to='/' text='Para os Clientes' />
     </>
   );
 };
