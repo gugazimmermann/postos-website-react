@@ -14,6 +14,7 @@ const CodeForm = ({ id, email, confirmationCode = '' }) => {
 
   const validate = (data) => {
     if (!data.code) return 'Código de Confirmação é obrigatório!';
+    if (data.code?.length < 6) return 'Código de Confirmação deve ter mínimo de 6 caracteres!';
     if (!data.id) return 'Ocorreu um erro, tente acessar a página novamente!';
     return false;
   };
