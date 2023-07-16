@@ -2,11 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as api from '../../api';
 import { isValidCNPJ, isValidEmail, masks, statesBR } from '../../helpers';
-import { Alert, Button, Input, Label, Select } from '../../components';
-
-const Row = ({ children }) => <div className='mb-4 md:mb-0'>{children}</div>;
-
-const Grid = ({ children }) => <div className='md:grid md:grid-cols-2 md:gap-4'>{children}</div>;
+import { Alert, Button, Input, Label, Select, Row, Col2 } from '../../components';
 
 const RegisterForm = () => {
   const navigate = useNavigate();
@@ -82,7 +78,7 @@ const RegisterForm = () => {
     <>
       {alert && <Alert type='error' text={alert} />}
       <form onSubmit={(e) => handleSubmit(e)} className='mt-8 space-y-6'>
-        <Grid>
+        <Col2>
           <Row>
             <Label htmlFor='document' text='CNPJ' />
             <Input
@@ -103,8 +99,8 @@ const RegisterForm = () => {
               name='name'
             />
           </Row>
-        </Grid>
-        <Grid>
+        </Col2>
+        <Col2>
           <Row>
             <Label htmlFor='email' text='Email' />
             <Input
@@ -126,8 +122,8 @@ const RegisterForm = () => {
               name='phone'
             />
           </Row>
-        </Grid>
-        <Grid>
+        </Col2>
+        <Col2>
           <Row>
             <Label htmlFor='address' text='Endedreço' />
             <Input
@@ -138,7 +134,7 @@ const RegisterForm = () => {
               name='address'
             />
           </Row>
-          <Grid>
+          <Col2>
             <Row>
               <Label htmlFor='city' text='Cidade' />
               <Input
@@ -160,8 +156,8 @@ const RegisterForm = () => {
                 data={statesBR}
               />
             </Row>
-          </Grid>
-        </Grid>
+          </Col2>
+        </Col2>
         <div className='w-full text-center'>
           <Button type='submit' loading={loading} text='Registrar' />
         </div>
