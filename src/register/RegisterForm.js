@@ -4,12 +4,13 @@ import { Alert, Button, Input, Label, Select } from '../components';
 
 const Row = ({ children }) => <div className='mb-4 md:mb-0'>{children}</div>;
 
+const Grid = ({ children }) => <div className='md:grid md:grid-cols-2 md:gap-4'>{children}</div>;
+
 const RegisterForm = () => {
   const [alert, setAlert] = useState();
   const [loading, setLoading] = useState(false);
   const [document, setDocument] = useState('');
   const [name, setName] = useState('');
-  const [code, setCode] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
@@ -19,7 +20,6 @@ const RegisterForm = () => {
   const resetForm = () => {
     setDocument('');
     setName('');
-    setCode('');
     setEmail('');
     setPhone('');
     setAddress('');
@@ -31,7 +31,6 @@ const RegisterForm = () => {
     if (
       !data.document ||
       !data.name ||
-      !data.code ||
       !data.email ||
       !data.phone ||
       !data.address ||
@@ -42,7 +41,6 @@ const RegisterForm = () => {
     if (!isValidCNPJ(data.document)) return 'CNPJ inválido!';
     if (!isValidEmail(data.email)) return 'Email inválido!';
     if (data?.name?.length < 3) return 'Nome deve ter mínimo de 3 caracteres!';
-    if (data?.code?.length < 3) return 'Código deve ter mínimo de 3 caracteres!';
     return false;
   };
 
@@ -53,7 +51,6 @@ const RegisterForm = () => {
     const data = {
       document,
       name,
-      code,
       email,
       phone,
       address,
@@ -77,7 +74,7 @@ const RegisterForm = () => {
     <>
       {alert && <Alert type='error' text={alert} />}
       <form onSubmit={(e) => handleSubmit(e)} className='mt-8 space-y-6'>
-        <div className='md:grid md:grid-cols-2 md:gap-4'>
+        <Grid>
           <Row>
             <Label htmlFor='document' text='CNPJ' />
             <Input
@@ -98,18 +95,8 @@ const RegisterForm = () => {
               name='name'
             />
           </Row>
-        </div>
-        <div className='md:grid md:grid-cols-3 md:gap-4'>
-          <Row>
-            <Label htmlFor='code' text='Código' />
-            <Input
-              loading={loading}
-              value={masks.code(code)}
-              editValue={(e) => setCode(masks.code(e.target.value))}
-              required={true}
-              name='code'
-            />
-          </Row>
+        </Grid>
+        <Grid>
           <Row>
             <Label htmlFor='email' text='Email' />
             <Input
@@ -131,8 +118,8 @@ const RegisterForm = () => {
               name='phone'
             />
           </Row>
-        </div>
-        <div className='md:grid md:grid-cols-2 md:gap-4'>
+        </Grid>
+        <Grid>
           <Row>
             <Label htmlFor='address' text='Endedreço' />
             <Input
@@ -143,7 +130,7 @@ const RegisterForm = () => {
               name='address'
             />
           </Row>
-          <div className='grid grid-cols-2 gap-4'>
+          <Grid>
             <Row>
               <Label htmlFor='city' text='Cidade' />
               <Input
@@ -165,8 +152,8 @@ const RegisterForm = () => {
                 data={statesBR}
               />
             </Row>
-          </div>
-        </div>
+          </Grid>
+        </Grid>
         <div className='w-full text-center'>
           <Button type='submit' loading={loading} text='Registrar' />
         </div>
