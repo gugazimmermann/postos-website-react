@@ -7,7 +7,7 @@ const MainCol = () => {
     <div className='w-full'>
       <div className='flex flex-col md:flex-row justify-between items-center p-4'>
         <Logo />
-        <p className='text-slate-500 mt-2 md:mt-0'>
+        <p className='text-slate-500 mt-2 text-center md:text-right md:mt-0'>
           Sistema para Gerenciamento de Frotas para Postos de Combustíveis
         </p>
       </div>
@@ -104,7 +104,7 @@ const Footer = () => {
     <footer className='bg-white'>
       <div className='container mx-auto mb-4'>
         <MainCol />
-        <div className='flex flex-wrap justify-around mt-4'>
+        <div className='flex flex-wrap justify-between gap-4 mt-4'>
           <Column
             title='Sobre Nós'
             items={[
