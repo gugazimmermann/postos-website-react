@@ -20,11 +20,11 @@ const useModal = (props) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [handleClickOutside]);
 
-  const ModalContent = ({ title, children }) => {
+  const ModalContent = ({ title, scroll, children }) => {
     return (
-      <div className='bg-white p-4'>
-        {title && <h2 className='text-xl font-bold mb-4'>{title}</h2>}
-        {children}
+      <div className='bg-white py-4'>
+        {title && <h2 className='text-xl font-bold mb-2 px-4'>{title}</h2>}
+        <div className={`${scroll ? 'overflow-y-auto max-h-96 pl-4' : 'px-4'}`}>{children}</div>
       </div>
     );
   };
@@ -43,11 +43,11 @@ const useModal = (props) => {
     );
   };
 
-  const Modal = ({ title, buttonsType, closeButton, children }) => {
+  const Modal = ({ title, scroll, buttonsType, closeButton, children }) => {
     if (!isModalOpen) return null;
 
     return (
-      <div className='fixed z-10 inset-0 overflow-y-auto'>
+      <div className='fixed z-50 inset-0 overflow-y-auto'>
         <div className='flex items-center justify-center min-h-screen px-4 text-center'>
           <div className='fixed inset-0 transition-opacity'>
             <div className='absolute inset-0 bg-gray-800 opacity-75' />
@@ -59,7 +59,9 @@ const useModal = (props) => {
             aria-labelledby='modal-headline'
             ref={props.closeoutside ? modalRef : null}
           >
-            <ModalContent title={title}>{children}</ModalContent>
+            <ModalContent title={title} scroll={scroll}>
+              {children}
+            </ModalContent>
             {(!buttonsType || buttonsType === 'single') && (
               <SingleButton closeButton={closeButton} />
             )}

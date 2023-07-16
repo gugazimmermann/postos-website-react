@@ -1,11 +1,17 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as api from '../../api';
+import { useModal } from '../../hooks';
 import { isValidCNPJ, isValidEmail, masks, statesBR } from '../../helpers';
 import { Alert, Button, Input, Label, Select, Row, Col2 } from '../../components';
+import { UsageTermsText, PrivacityText } from '../information';
 
 const RegisterForm = () => {
   const navigate = useNavigate();
+  const { openModal: openUsageTermsModal, Modal: UsageTermsyModal } = useModal({
+    closeoutside: true,
+  });
+  const { openModal: openPrivacityModal, Modal: PrivacityModal } = useModal({ closeoutside: true });
   const [alert, setAlert] = useState();
   const [loading, setLoading] = useState(false);
   const [document, setDocument] = useState('');
@@ -15,6 +21,7 @@ const RegisterForm = () => {
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
+  const [accept, setAccept] = useState(false);
 
   const resetForm = () => {
     setDocument('');
@@ -27,6 +34,7 @@ const RegisterForm = () => {
   };
 
   const validate = (form) => {
+    if (!form.accept) return 'É necessário aceitar os Termos de Uso e Privacidade!';
     if (
       !form.document ||
       !form.name ||
@@ -48,6 +56,7 @@ const RegisterForm = () => {
     e.preventDefault();
     setLoading(true);
     const form = {
+      accept,
       document,
       name,
       email,
@@ -164,6 +173,45 @@ const RegisterForm = () => {
             </Row>
           </Col2>
         </Col2>
+        <Row>
+          <div className='flex items-center'>
+            <input
+              id='accept-checkbox'
+              type='checkbox'
+              checked={accept}
+              onChange={(e) => setAccept(e.target.checked)}
+              className='w-4 h-4 rounded'
+            />
+            <label
+              htmlFor='accept-checkbox'
+              className='ml-2 text-sm font-medium text-slate-800 inline-flex'
+            >
+              Li e concordo com os
+              <button
+                type='button'
+                onClick={openUsageTermsModal}
+                className='text-amber-500 hover:underline mx-1'
+              >
+                Termos de Uso
+              </button>
+              e
+              <button
+                type='button'
+                onClick={openPrivacityModal}
+                className='text-amber-500 hover:underline ml-1'
+              >
+                Privacidade
+              </button>
+              .
+            </label>
+          </div>
+          <UsageTermsyModal title='Termos de Uso' scroll={true}>
+            <UsageTermsText />
+          </UsageTermsyModal>
+          <PrivacityModal title='Políticas de Privacidade' scroll={true}>
+            <PrivacityText />
+          </PrivacityModal>
+        </Row>
         <div className='w-full text-center'>
           <Button type='submit' loading={loading} text='Registrar' />
         </div>
