@@ -77,6 +77,11 @@ const getRegisterSuccess = async (id) => {
   return data;
 };
 
+const postContact = async ({ name, email, message }) => {
+  const res = await simulateAPICall({ message: 'Message sent successfully!'});
+  return res;
+};
+
 export {
   postRegister,
   getRegisterCode,
@@ -84,4 +89,5 @@ export {
   getRegisterLogin,
   postRegisterLogin,
   getRegisterSuccess,
+  postContact
 };

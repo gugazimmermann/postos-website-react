@@ -152,8 +152,8 @@ const Footer = () => {
                 link: '/faq',
               },
               {
-                name: 'Suporte',
-                link: '/',
+                name: 'Contato',
+                link: '/contato',
               },
             ]}
           />

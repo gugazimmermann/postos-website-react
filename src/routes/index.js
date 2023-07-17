@@ -14,6 +14,8 @@ import NewReports from '../pages/system/NewReports';
 import UsageTerms from '../pages/information/UsageTerms';
 import Privacity from '../pages/information/Privacity';
 import FAQ from '../pages/help/FAQ';
+import Contact from '../pages/help/Contact';
+import ContactSuccess from '../pages/help/ContactSuccess';
 
 const router = createBrowserRouter([
   {
@@ -76,6 +78,14 @@ const router = createBrowserRouter([
   {
     path: 'faq',
     element: <FAQ />,
+  },
+  {
+    path: 'contato',
+    element: <Contact />,
+  },
+  {
+    path: 'contato/sucesso',
+    element: <ContactSuccess />,
   },
 ]);
 
