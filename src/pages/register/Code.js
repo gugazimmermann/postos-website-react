@@ -11,7 +11,8 @@ const Code = () => {
   const [email, setEmail] = useState('');
 
   const getRegister = useCallback(async () => {
-    const data = await api.getRegisterCode(userId);
+    const data = await api.getOrganization(userId);
+    console.log(data)
     setEmail(data.email);
   }, [userId]);
 

@@ -36,8 +36,8 @@ const ContactForm = () => {
       setLoading(false);
       return;
     }
-    const { data } = await api.postContact(form);
-    if (data.message === 'Message sent successfully!') {
+    const data = await api.contact(form);
+    if (data?.message === 'Message sent successfully!') {
       setLoading(false);
       resetForm();
       navigate(`/contato/sucesso`);

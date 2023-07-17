@@ -11,7 +11,7 @@ const Login = () => {
   const [name, setName] = useState('');
 
   const getRegister = useCallback(async () => {
-    const data = await api.getRegisterLogin(userId);
+    const data = await api.getOrganization(userId);
     setName(data.name);
   }, [userId]);
 

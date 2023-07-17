@@ -71,15 +71,15 @@ const RegisterForm = () => {
       setLoading(false);
       return;
     }
-    const { data } = await api.postRegister(form);
-    if (data.id) {
+    const data = await api.saveOrganization(form);
+    if (data?.id) {
       setLoading(false);
       resetForm();
       navigate(`/cadastro/login/${data.id}`);
     } else {
-      if (data.message === 'Email is already in registered.') {
+      if (data === 'Email is already in registered.') {
         setAlert('Email já está cadastrado.');
-      } else if (data.message === 'Document is already in registered.') {
+      } else if (data === 'Document is already in registered.') {
         setAlert('CNPJ já está cadastrado.');
       } else {
         setAlert('Ocorreu um erro no envio do formulário, tente novamente.');

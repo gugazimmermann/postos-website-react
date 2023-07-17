@@ -42,13 +42,13 @@ const LoginForm = ({ id, name }) => {
       setLoading(false);
       return;
     }
-    const { data } = await api.postRegisterLogin(form);
-    if (data.id) {
+    const data = await api.saveOrganizationLogin(form);
+    if (data?.id) {
       setLoading(false);
       resetForm();
       navigate(`/cadastro/codigo/${data.id}`);
     } else {
-      if (data.message === 'Code is already in registered.') {
+      if (data === 'Code is already in registered.') {
         setAlert('Código da Organização já está cadastrado.');
       } else {
         setAlert('Ocorreu um erro no envio do formulário, tente novamente.');

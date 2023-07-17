@@ -30,13 +30,13 @@ const CodeForm = ({ id, email, confirmationCode = '' }) => {
       setLoading(false);
       return;
     }
-    const { data } = await api.postRegisterCode(form);
+    const data = await api.confirmOrganization(form);
     if (data.id) {
       setLoading(false);
       resetForm();
       navigate(`/cadastro/sucesso/${data.id}`);
     } else {
-      if (data.message === 'Code not found.') {
+      if (data === 'Code not found.' || data === 'Wrong Code!') {
         setAlert('Código de Confirmação inválido.');
       } else {
         setAlert('Ocorreu um erro no envio do formulário, tente novamente.');

@@ -12,7 +12,7 @@ const Success = () => {
   const [email, setEmail] = useState('');
 
   const getRegister = useCallback(async () => {
-    const data = await api.getRegisterSuccess(userId);
+    const data = await api.getOrganization(userId);
     setCode(data.code);
     setName(data.name);
     setLogin(data.login);
